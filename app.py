@@ -56,10 +56,9 @@ def webhook():
 
 
 def message_to_send(sender_id, message_text):
-    if message_text.lower() = "hello" or "hi" or "hey" or "greetings"
-        m = "Hello " + sender_id
-        return m
-    else
+    if message_text.lower() == "hello" or message_text.lower() == "hi" or message_text.lower() == "hey" or message_text.lower() == "sup" or message_text.lower() == "yo":
+       return "Hi " + sender_id
+    else:
         return message_text
 
 
