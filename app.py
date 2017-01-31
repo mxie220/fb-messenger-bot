@@ -56,11 +56,23 @@ def webhook():
 
 
 def message_to_send(message_text):
-    if message_text.lower() == "hello" or message_text.lower() == "hi" or message_text.lower() == "hey" or message_text.lower() == "sup" or message_text.lower() == "yo":
-       return "Hi " + messaging_event["sender"]
-    else:
-        return message_text
+    message_list = message_text.split(' ')
+    for word in message_list:
+        word = word.lower()
+        if word == "hello" or word == "hi" or word == "hey" or word.lower() == "sup" or word.lower() == "yo":
+            return "Hi, I'm Scopey!"
 
+        if word == "help" or word == "what":
+            return "What can I help you with?"
+        
+        if word == "joke" or word == "joke?":
+            return "Knock, knock"
+
+        if word == "who's" or word == "whose":
+            return "You should go open the door, someone is knocking."
+
+        else:
+            return "I'm tired now, goodbye!"
 
 def send_message(recipient_id, message_text):
 
