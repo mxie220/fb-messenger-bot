@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import datetime
 
 import requests
 from flask import Flask, request
@@ -62,8 +63,12 @@ def message_to_send(message_text):
         if word == "hello" or word == "hi" or word == "hey" or word.lower() == "sup" or word.lower() == "yo":
             return "Hi, I'm Scopey!"
 
-        if word == "help" or word == "what":
+        if word == "help":
             return "What can I help you with?"
+        
+        if word == "date" or word == "today" or word == "day":
+            date = datetime.date.today()
+            return date.strftime("Today is %A the %d of %B")
         
         if word == "joke" or word == "joke?":
             return "Knock, knock"
@@ -72,7 +77,9 @@ def message_to_send(message_text):
             return "You should go open the door, someone is knocking."
 
         else:
-            return "I'm tired now, goodbye!"
+            return message_text
+
+
 
 def send_message(recipient_id, message_text):
 
