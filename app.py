@@ -41,7 +41,7 @@ def webhook():
                     
                     message = message_to_send(sender_id, message_text)
 
-                    send_message(sender_id, message)
+                    send_message(message)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -55,9 +55,9 @@ def webhook():
     return "ok", 200
 
 
-def message_to_send(sender_id, message_text):
+def message_to_send(message_text):
     if message_text.lower() == "hello" or message_text.lower() == "hi" or message_text.lower() == "hey" or message_text.lower() == "sup" or message_text.lower() == "yo":
-       return "Hi " + sender_id
+       return "Hi " + messaging_event["sender"]
     else:
         return message_text
 
