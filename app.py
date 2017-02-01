@@ -1,7 +1,9 @@
 import os
 import sys
 import json
+
 import datetime
+import random
 
 import requests
 from flask import Flask, request
@@ -58,26 +60,57 @@ def webhook():
 
 def message_to_send(message_text):
     message_list = message_text.split(' ')
+    md = {}
     for word in message_list:
-        word = word.lower()
-        if word == "hello" or word == "hi" or word == "hey" or word.lower() == "sup" or word.lower() == "yo":
-            return "Hi, I'm Scopey!"
-
-        if word == "help":
-            return "What can I help you with?"
-        
-        if word == "date" or word == "today" or word == "day":
-            date = datetime.date.today()
-            return date.strftime("Today is %A the %d of %B")
-        
-        if word == "joke" or word == "joke?":
-            return "Knock, knock"
-
-        if word == "who's" or word == "whose":
-            return "You should go open the door, someone is knocking."
-
+        word = word.lower().strip('?').strip('.').strip('!')
+        if word in md:
+            md[word] += 1
         else:
-            return message_text
+            md[word] = 0
+
+    message_back = response(md)
+    return message_back
+
+def response(m):
+    g = greetings(m)
+    i = info(m)
+    d = date(m)
+    return g + i + d
+
+
+def greetings(text):
+    greetings_list = ["Hi ", "Hello ", "Hey "]
+    n = random.randrange(0, 3)
+    if "good" in text and "morning" in text:
+        return "Good Morning!\n"
+    elif "good" in text and "evening" in text:
+        return "Good Evening!\n"
+    elif "good" in text and "afternoon" in text:
+        return "Good Afternoon!\n"
+    else:
+        return greetings_list[n]
+
+def info(text):
+    aboutscope = "Scope is a social, networking, and dating app that helps you \
+    connect with those around you in real life, in real time.\n"
+    instructionsope = "instructions"
+    if "what" in text and "is" in text and "scope" in text:
+        return aboutscope
+    elif "tell" in text and "me" in text and "about" in text:
+        return aboutscope
+    elif "how" in text and "use" in text:
+        return instructionsope
+    elif "help" in text:
+        return "How may I help you?\n"
+    else:
+        return ""
+
+def date(text):
+    if "date" in text or "today" in text:
+        date = datetime.date.today()
+        return date.strftime("Today is %A the %d of %B. \n")
+    else:
+        return ""
 
 
 
