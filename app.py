@@ -68,7 +68,7 @@ def message_to_send(message_text):
         else:
             md[word] = 0
 
-    message_back = response(md)
+message_back = response(md)
     return message_back
 
 def response(m):
@@ -101,9 +101,9 @@ def info(text):
         return aboutscope
     elif "about" in text and "scope" in text:
         return aboutscope
-    elif "who" in text and "you" in text and "are" in text:
+    elif "who" in text or "what" in text and "you" in text and "are" in text:
         return "My name is Scopey.\nAsk me anything about Scope!\n"
-    elif "how" in text and "use" in text or "setup" in text or "1" in text or "instructions" in text or "instruction" in text or "info" in text:
+    elif "how" in text and "use" in text or "setup" in text or "1" in text or "instructions" in text or "instruction" in text or "info" in text or "set" in text and "up" in text:
         return instructions(1)
     elif "2" in text:
         return instructions(2)
@@ -143,7 +143,6 @@ def instructions(step):
         return "Congratulations! You're now ready to Scope.\n"
     else:
         return "Message me the number '1' to set up."
-
 
 
 def send_message(recipient_id, message_text):
