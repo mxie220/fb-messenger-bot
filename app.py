@@ -62,7 +62,7 @@ def message_to_send(message_text):
     message_list = message_text.split(' ')
     md = {}
     for word in message_list:
-        word = word.lower().strip('?').strip('.').strip('!')
+        word = word.lower().strip('?').strip('.').strip('!').strip('"')
         if word in md:
             md[word] += 1
         else:
