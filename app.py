@@ -132,20 +132,13 @@ def instructions(step):
         return "Download and install the Scope app on your iOS or Android phone.\
         \n\nMessage me the number '2' once you have completed."
     elif step == 2:
-        return "Open up the app and choose one of the following options:\n\
-        1. Go on a date\n\
-        2. Meet a new friend\n\
-        3. Network with people\n\n\Message me the number '3' once you have completed."
+        return "Open up the app and choose one of the following options:\n1. Go on a date\n2. Meet a new friend\n3. Network with people\n\nMessage me the number '3' once you have completed."
     elif step == 3:
-        return "Now choose one of the following options to connect into Scope.\n\n\Message me the number '4' once you have completed."
+        return "Now choose one of the following options to connect into Scope.\n\nMessage me the number '4' once you have completed."
     elif step == 4:
-        return "Take a selfie - make sure it's a good angle.\n\n\Message me the number '5' once you have completed."
+        return "Take a selfie - make sure it's a good angle.\n\nMessage me the number '5' once you have completed."
     elif step == 5:
-        return "Set up your profile by choosing:\n\
-        1. Who you're interested in\n\
-        2. The ages you're interested in\n\
-        3. How far you're willing to walk\n\
-        4. Optional: use this only if you're looking for someone w=very specific\n\Then press 'Save'\n\n\Message me the number '6' once you have completed."
+        return "Set up your profile by choosing:\n1. Who you're interested in\n2. The ages you're interested in\n3. How far you're willing to walk\n4. Optional: use this only if you're looking for someone very specific\nThen press 'Save'\n\nMessage me the number '6' once you have completed."
     elif step == 6:
         return "Congratulations! You're now ready to Scope.\n"
     else:
