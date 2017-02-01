@@ -62,7 +62,7 @@ def message_to_send(message_text):
     message_list = message_text.split(' ')
     md = {}
     for word in message_list:
-        word = word.lower().strip('?').strip('.').strip('!').strip('"')
+        word = word.lower().strip('?').strip('.').strip('!')
         if word in md:
             md[word] += 1
         else:
@@ -81,25 +81,40 @@ def response(m):
 def greetings(text):
     greetings_list = ["Hi ", "Hello ", "Hey "]
     n = random.randrange(0, 3)
-    if "good" in text and "morning" in text:
+    if "hi" in text or "hey" in text or "hello" in text or "greetings" in text:
+        return greetings_list[n]
+    elif "good" in text and "morning" in text:
         return "Good Morning!\n"
     elif "good" in text and "evening" in text:
         return "Good Evening!\n"
     elif "good" in text and "afternoon" in text:
         return "Good Afternoon!\n"
     else:
-        return greetings_list[n]
+        return ""
 
 def info(text):
-    aboutscope = "Scope is a social, networking, and dating app that helps you \
+    aboutscope = "Scope is a social, networking, and dating app that helps you\
     connect with those around you in real life, in real time.\n"
-    instructionsope = "instructions"
     if "what" in text and "is" in text and "scope" in text:
         return aboutscope
     elif "tell" in text and "me" in text and "about" in text:
         return aboutscope
-    elif "how" in text and "use" in text:
-        return instructionsope
+    elif "about" in text and "scope" in text:
+        return aboutscope
+    elif "who" in text and "you" in text and "are" in text:
+        return "My name is Scopey.\nAsk me anything about Scope!\n"
+    elif "how" in text and "use" in text or "setup" in text or "1" in text or "instructions" in text or "instruction" in text or "info" in text:
+        return instructions(1)
+    elif "2" in text:
+        return instructions(2)
+    elif "3" in text:
+        return instructions(3)
+    elif "4" in text:
+        return instructions(4)
+    elif "5" in text:
+        return instructions(5)
+    elif "6" in text:
+        return instructions(6)
     elif "help" in text:
         return "How may I help you?\n"
     else:
@@ -111,6 +126,35 @@ def date(text):
         return date.strftime("Today is %A the %d of %B. \n")
     else:
         return ""
+
+def instructions(step):
+    if step == 1:
+        return "Download and install the Scope app on your iOS or Android phone.\
+        \n\nMessage me the number '2' once you have completed."
+    elif step == 2:
+        return "Open up the app and choose one of the following options:\n\
+        1. Go on a date\n\
+        2. Meet a new friend\n\
+        3. Network with people\n\n\
+        Message me the number '3' once you have completed."
+    elif step == 3:
+        return "Now choose one of the following options to connect into Scope.\n\n\
+        Message me the number '4' once you have completed."
+    elif step == 4:
+        return "Take a selfie - make sure it's a good angle.\n\n\
+        Message me the number '5' once you have completed."
+    elif step == 5:
+        return "Set up your profile by choosing:\n\
+        1. Who you're interested in\n\
+        2. The ages you're interested in\n\
+        3. How far you're willing to walk\n\
+        4. Optional: use this only if you're looking for someone w=very specific\n\
+        Then press 'Save'\n\n\
+        Message me the number '6' once you have completed."
+    elif step == 6:
+        return "Congratulations! You're now ready to Scope.\n"
+    else:
+        return "Message me the number '1' to set up."
 
 
 
