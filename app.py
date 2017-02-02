@@ -103,7 +103,7 @@ def info(text):
         return aboutscope
     elif "about" in text and "scope" in text:
         return aboutscope
-    elif "interview" in text:
+    elif "interview" in text or "another" in text and "question" in text and "next" in text or "market" in text and "research" in text or "interviews" in text:
         return interview()
     elif "who" in text or "what" in text and "you" in text and "are" in text:
         return "My name is Scopey.\nAsk me anything about Scope!\n"
@@ -180,6 +180,7 @@ was reliable and had a good reputation?"
 life or do you prefer to keep them separate?"
     else:
         return ""
+
 
 
 
