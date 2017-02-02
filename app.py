@@ -68,7 +68,7 @@ def message_to_send(message_text):
         else:
             md[word] = 0
 
-message_back = response(md)
+    message_back = response(md)
     return message_back
 
 def response(m):
@@ -143,6 +143,8 @@ def instructions(step):
         return "Congratulations! You're now ready to Scope.\n"
     else:
         return "Message me the number '1' to set up."
+
+
 
 
 def send_message(recipient_id, message_text):
