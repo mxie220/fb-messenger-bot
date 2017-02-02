@@ -129,7 +129,7 @@ def date(text):
         date = datetime.datetime.today()
         return date.strftime("Today is %A the %d of %B. \n")
     elif "time" in text or "right" in text and "now" in text:
-        time = datetime.datetime.now()
+        time = datetime.datetime.today().now()
         analog = time.strftime("%p")
         if analog == "AM":
             return time.strftime("Good Morning, it is currently %I:%M%p. \n")
