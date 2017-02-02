@@ -89,12 +89,14 @@ def greetings(text):
         return "Good Evening!\n"
     elif "good" in text and "afternoon" in text:
         return "Good Afternoon!\n"
+    elif "goodbye" in text or "bye" in text:
+        return "Goodbye!"
     else:
         return ""
 
 def info(text):
-    aboutscope = "Scope is a social, networking, and dating app that helps you\
-    connect with those around you in real life, in real time.\n"
+    aboutscope = "Scope is a fun way to help you\
+    connect with those around you immediately in real life.\n"
     if "what" in text and "is" in text and "scope" in text:
         return aboutscope
     elif "tell" in text and "me" in text and "about" in text:
