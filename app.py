@@ -103,7 +103,7 @@ def info(text):
         return aboutscope
     elif "about" in text and "scope" in text:
         return aboutscope
-    elif "interview" in text or "another" in text and "question" in text and "next" in text or "market" in text and "research" in text or "interviews" in text:
+    elif "interview" in text or "another" in text and "question" in text and "next" in text and "question" in text or "market" in text and "research" in text or "interviews" in text or "questionaire" in text:
         return interview()
     elif "who" in text or "what" in text and "you" in text and "are" in text:
         return "My name is Scopey.\nAsk me anything about Scope!\n"
@@ -125,12 +125,18 @@ def info(text):
         return ""
 
 def date(text):
-    if "date" in text or "today" in text:
+    if "date" in text or "today" in text or "what" in text and "day" in text:
         date = datetime.datetime.today()
         return date.strftime("Today is %A the %d of %B. \n")
-    elif "time" in text:
+    elif "time" in text or "right" in text and "now" in text:
         time = datetime.datetime.now()
-        return time.strftime("It is currently %I:%M%p. \n")
+        analog = time.strftime("%p")
+        if analog == "AM":
+            return time.strftime("Good Morning, it is currently %I:%M%p. \n")
+        elif analog == "PM":
+            return time.strftime("Good Evening, it is currently %I:%M%p. \n")
+        else:
+            return time.strftime("It is currently %I:%M%p. \n")
     else:
         return ""
 
