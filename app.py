@@ -103,6 +103,8 @@ def info(text):
         return aboutscope
     elif "about" in text and "scope" in text:
         return aboutscope
+    elif "interview" in text:
+        return interview()
     elif "who" in text or "what" in text and "you" in text and "are" in text:
         return "My name is Scopey.\nAsk me anything about Scope!\n"
     elif "how" in text and "use" in text or "setup" in text or "1" in text or "instructions" in text or "instruction" in text or "info" in text or "set" in text and "up" in text:
@@ -124,8 +126,11 @@ def info(text):
 
 def date(text):
     if "date" in text or "today" in text:
-        date = datetime.date.today()
+        date = datetime.datetime.today()
         return date.strftime("Today is %A the %d of %B. \n")
+    elif "time" in text:
+        time = datetime.datetime.now()
+        return time.strftime("It is currently %I:%M%p. \n")
     else:
         return ""
 
@@ -145,6 +150,36 @@ def instructions(step):
         return "Congratulations! You're now ready to Scope.\n"
     else:
         return "Message me the number '1' to set up."
+
+
+def interview():
+    num = random.randrange(1, 10)
+    if num == 1:
+        return "Do you find it easier to have a conversation with someone online\
+        or offline?"
+    elif num == 2:
+        return "Would you be more likely to talk to someone if you knew they\
+        wouldn't mind being approached?"
+    elif num == 3:
+        return "What do you think about online dating or dating apps?"
+    elif num == 4:
+        return "Do you think there is a difference between online dating and \
+        dating apps?"
+    elif num == 5:
+        return "If there is anything you can change about dating apps or online\
+        dating, what would it be?"
+    elif num == 6:
+        return "Do you have an iPhone or an Android?"
+    elif num == 7:
+        return "How much are you willing to pay for a dating app if you knew it \
+        was reliable and had a good reputation?"
+    elif num == 8:
+        return "Are there many couples that you know of who met online?"
+    elif num == 9:
+        return "Would you ever connect your personal life with your professional \
+        life or do you prefer to keep them separate?"
+    else:
+        return ""
 
 
 
