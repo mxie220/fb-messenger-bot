@@ -155,29 +155,29 @@ def instructions(step):
 def interview():
     num = random.randrange(1, 10)
     if num == 1:
-        return "Do you find it easier to have a conversation with someone online\
-        or offline?"
+        return "Do you find it easier to have a conversation with someone online \
+or offline?"
     elif num == 2:
-        return "Would you be more likely to talk to someone if you knew they\
-        wouldn't mind being approached?"
+        return "Would you be more likely to talk to someone if you knew they \
+wouldn't mind being approached?"
     elif num == 3:
         return "What do you think about online dating or dating apps?"
     elif num == 4:
         return "Do you think there is a difference between online dating and \
-        dating apps?"
+dating apps?"
     elif num == 5:
-        return "If there is anything you can change about dating apps or online\
-        dating, what would it be?"
+        return "If there is anything you can change about dating apps or online \
+dating, what would it be?"
     elif num == 6:
         return "Do you have an iPhone or an Android?"
     elif num == 7:
         return "How much are you willing to pay for a dating app if you knew it \
-        was reliable and had a good reputation?"
+was reliable and had a good reputation?"
     elif num == 8:
         return "Are there many couples that you know of who met online?"
     elif num == 9:
         return "Would you ever connect your personal life with your professional \
-        life or do you prefer to keep them separate?"
+life or do you prefer to keep them separate?"
     else:
         return ""
 
